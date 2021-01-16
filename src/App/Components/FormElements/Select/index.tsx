@@ -1,13 +1,20 @@
 import React, { useContext } from 'react';
-import faker from 'faker';
-import { AppStateContext } from '../../../Providers/AppState';
+// import faker from 'faker';
+// import { AppStateContext } from '../../../Providers/AppState';
 import { Select as SelectComponent, Div, Label } from './styles';
 import { Col } from './../../UI/Molecules/Col';
 import { Options } from '../Option';
 
+
+interface IOptionProperties {
+  value?: string;
+  name?: string;
+  image?: string;
+  price?: number;
+}
 interface ISelectProps {
   id?: string;
-  iterators?: any[];
+  iterators?: IOptionProperties[];
   handleChange?: (value: any) => void;
 }
 
@@ -27,8 +34,8 @@ export const Select = ({ id, iterators = [], handleChange }: ISelectProps) => {
     <Col>
       <Label htmlFor={id}>Selector de Plan:</Label>
       <SelectComponent id={id} onChange={handleChange}>
-        {iterators.map((item) => (
-          <Options key={faker.random.uuid()} option={item} />
+        {iterators.map((item: IOptionProperties, index: number) => (
+          <Options key={`${index+1}`} option={item} />
         ))}
       </SelectComponent>
     </Col>
