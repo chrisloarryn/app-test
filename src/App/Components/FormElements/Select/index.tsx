@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import faker from 'faker';
 import { AppStateContext } from '../../../Providers/AppState';
 import { Select as SelectComponent, Div, Label, Button } from './styles';
-import { Options } from './../Option';
+import { Options } from '../Option';
 
 interface ISelectProps {
   id: string

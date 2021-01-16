@@ -1,11 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import React, { createContext, useEffect, useState } from 'react';
-import { apiGet } from '../../api';
-import { urlBase } from '../../api/urls';
+import { apiGet } from '../../Api';
+import { urlBase } from '../../Api/urls';
+import { insurances as insuranceMock } from './../../Constants'
 
 export const AppStateContext = createContext({
-  insurances: [],
+  insurances: insuranceMock.map((item: any) => item.insurance),
   active: {
     name: '',
     description: '',
@@ -31,16 +32,16 @@ export const AppStateProvider = ({ children }: any): JSX.Element => {
     image: '',
     price: 0
   });
-  const [insurances, setInsurances] = useState<any>([]);
+  const [insurances, setInsurances] = useState<any>(insuranceMock.map((item: any) => item.insurance));
 
-  useEffect(() => {
+  /* useEffect(() => {
     const availableIDs = [58, 59];
     availableIDs.map(async (id: number) => {
       const { insurance } = await apiGet(`${urlBase}/${id}`)
       setInsurances((prev: any) => [...prev, { ...insurance }])
       return insurance
     }) // setInsurances(status);
-  }, []);
+  }, []); */
 
   return (
     <AppStateContext.Provider

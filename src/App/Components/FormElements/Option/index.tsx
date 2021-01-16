@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Option } from './../Option/styles';
+import { Option } from './styles';
 
 interface IOptionProperties {
   value?: string;
