@@ -13,7 +13,7 @@ import { useForm } from '../../../../Hooks/useForm';
 export const Insurance = ({ name = '' }: { name?: string }) => {
   const INSURANCE_NAME = 'insurance';
   const { insurances, setActive } = useContext(AppStateContext);
-  const [formValues, handleInputChange] = useForm({ [INSURANCE_NAME]: '' })
+  const [formValues, handleInputChange] = useForm({ [INSURANCE_NAME]: '' });
   console.log(insurances);
   const handleClick = (e: any) => {
     e.preventDefault();
@@ -22,16 +22,22 @@ export const Insurance = ({ name = '' }: { name?: string }) => {
       target: { value }
     } = e;
     console.log(value);
-    
+
     // setActive(find);
   };
 
   useEffect(() => {
-    const filtered = insurances && insurances.length && insurances.length > 0 && insurances.filter((item: any) => item.name === formValues[INSURANCE_NAME]);
-    const find = filtered && filtered
-    setActive(!!find && find)
-  // eslint-disable-next-line
-  }, [formValues, setActive])
+    const filtered =
+      insurances &&
+      insurances.length &&
+      insurances.length > 0 &&
+      insurances.filter(
+        (item: any) => item.name === formValues[INSURANCE_NAME]
+      );
+    const find = filtered && filtered;
+    setActive(!!find && find);
+    // eslint-disable-next-line
+  }, [formValues, setActive]);
   return (
     <div>
       <File>
@@ -53,7 +59,11 @@ export const Insurance = ({ name = '' }: { name?: string }) => {
               align-items: flex-end;
             `}
           >
-            <Select iterators={insurances} handleChange={handleInputChange} name={INSURANCE_NAME} />
+            <Select
+              iterators={insurances}
+              handleChange={handleInputChange}
+              name={INSURANCE_NAME}
+            />
 
             <Button />
           </form>
