@@ -12,15 +12,16 @@ interface IOptionProperties {
 interface ISelectProps {
   id?: string;
   iterators?: IOptionProperties[];
-  handleChange?: (value: any) => void;
+  handleChange?: (value: any) => any;
+  name: string
 }
 
-export const Select = ({ id, iterators = [], handleChange }: ISelectProps) => (
+export const Select = ({ id, iterators = [], handleChange = () => {}, name }: ISelectProps) => (
   <Col>
     <Label htmlFor={id}>Selector de Plan:</Label>
-    <SelectComponent id={id} onChange={handleChange}>
+    <SelectComponent id={id} onChange={handleChange} name={name}>
       {iterators.map((item: IOptionProperties, index: number) => (
-        <Options key={`${index + 1}`} option={item} />
+        <Options key={`${(index + 1).toString()}`} option={item} />
       ))}
     </SelectComponent>
   </Col>

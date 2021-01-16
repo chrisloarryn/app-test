@@ -2,7 +2,6 @@
 // import './App.css';
 // import { Select } from './components/FormElements/Select';
 // import { ActiveInsure } from './components/UI/Insurance';
-// import Providers from './Providers';
 
 // const App = (): JSX.Element => {
 //   return (
@@ -17,15 +16,17 @@
 
 // export default App;
 
-import React from 'react'
-import { Insurance } from './Components/UI/Pages'
+import React from 'react';
+import Providers from './Providers';
+
+import { Insurance } from './Components/UI/Pages';
 
 const App = () => {
   return (
-    <div>
+    <Providers.AppStateProvider>
       <Insurance />
-    </div>
-  )
-}
+    </Providers.AppStateProvider>
+  );
+};
 
-export default App
+export default App;

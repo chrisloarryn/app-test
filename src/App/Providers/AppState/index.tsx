@@ -3,10 +3,16 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { apiGet } from '../../Api';
 import { urlBase } from '../../Api/urls';
-import { insurances as insuranceMock } from './../../Constants'
 
 export const AppStateContext = createContext({
-  insurances: insuranceMock.map((item: any) => item.insurance),
+  insurances: [
+    {
+      name: '',
+      description: '',
+      image: '',
+      price: 0
+    }
+  ],
   active: {
     name: '',
     description: '',
@@ -32,16 +38,22 @@ export const AppStateProvider = ({ children }: any): JSX.Element => {
     image: '',
     price: 0
   });
-  const [insurances, setInsurances] = useState<any>(insuranceMock.map((item: any) => item.insurance));
+  const [insurances, setInsurances] = useState<any>();
 
-  /* useEffect(() => {
+  useEffect(() => {
+    console.log('useEffect');
     const availableIDs = [58, 59];
     availableIDs.map(async (id: number) => {
-      const { insurance } = await apiGet(`${urlBase}/${id}`)
-      setInsurances((prev: any) => [...prev, { ...insurance }])
-      return insurance
-    }) // setInsurances(status);
-  }, []); */
+      console.log(id)
+      const { insurance } = await apiGet(`${urlBase}/${id}`);
+      console.log(insurance)
+      setInsurances((prev: any) => {
+        if (!prev) return [{ ...insurance }]
+        if (prev) return [...prev, { ...insurance }]
+      });
+      return insurance;
+    }); // setInsurances(status);
+  }, []);
 
   return (
     <AppStateContext.Provider

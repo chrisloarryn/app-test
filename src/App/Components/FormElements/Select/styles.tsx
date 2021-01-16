@@ -1,6 +1,10 @@
 import styled from '@emotion/styled'
 
-export const Select = styled.select`
+interface ISelectProps {
+  name?: string | any
+}
+
+export const Select = styled.select<ISelectProps>`
   display: flex;
   background: #FFFFFF;
   border: 1px solid #DDE3ED;

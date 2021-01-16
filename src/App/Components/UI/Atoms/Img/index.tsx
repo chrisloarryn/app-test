@@ -8,6 +8,6 @@ interface IImageProps {
   style?: any;
 }
 
-export const Img = ({ src, alt, style = { width: '100%' } }: IImageProps) => {
-  return <Image src={src} alt={alt} style={style} />;
-};
+export const Img = ({ src, alt, style = { width: '100%' } }: IImageProps) => (
+  <Image src={src} alt={alt} style={style} />
+);

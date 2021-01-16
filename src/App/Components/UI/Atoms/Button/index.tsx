@@ -16,5 +16,5 @@ export const Button = ({
   onClick = () => {}
 }: IButtonProps): JSX.Element => {
   // onClick={() => setActive(mock)}
-  return <ButtonComponent onClick={onClick}>{name}</ButtonComponent>;
+  return <ButtonComponent type="submit" onClick={onClick}>{name}</ButtonComponent>;
 };
