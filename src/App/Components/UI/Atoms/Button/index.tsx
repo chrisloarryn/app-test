@@ -10,7 +10,7 @@ interface IButtonProps {
 export const Button = ({
   name = 'Button',
   onClick = () => {}
-}: IButtonProps) => {
+}: IButtonProps): JSX.Element => {
   // onClick={() => setActive(mock)}
   return <ButtonComponent onClick={onClick}>{name}</ButtonComponent>;
 };

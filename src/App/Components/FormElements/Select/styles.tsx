@@ -8,7 +8,7 @@ export const Select = styled.select`
   border-radius: 4px;
   width: 200px;
   height: 50px;
-  outline-color: lime
+  outline-color: rgba(62, 92, 17, 0.8)
 `
 
 export const Div = styled.div`

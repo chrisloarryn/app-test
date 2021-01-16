@@ -1,10 +1,13 @@
-import React from 'react';
+// this comment tells babel to convert jsx to calls to a function called jsx instead of React.createElement
+/** @jsxRuntime classic /
+/** @jsx jsx */
+import { jsx } from '@emotion/react'
 import { Select } from './../../../FormElements/Select';
 import { Title, Button } from '../../Atoms';
 import { File } from '../../Organisms';
-import { Row, Col } from './../../Molecules';
 
 import { insurances } from './../../../../Constants';
+import { Container } from '../../Templates';
 
 export const Insurance = ({ name = '' }: { name?: string }) => {
   const dataMock = insurances.map((item: any) => item.insurance);
@@ -18,14 +21,14 @@ export const Insurance = ({ name = '' }: { name?: string }) => {
           {name !== '' ? 'Seleccionado' : 'NO Seleccionado'}
         </Title>
       </File>
-      <Row>
-        <Col>
+
+      <File>
+        <Container  align="flex-end">
           <Select iterators={dataMock} />
-        </Col>
-        <Col>
+
           <Button />
-        </Col>
-      </Row>
+        </Container>
+      </File>
     </div>
   );
 };

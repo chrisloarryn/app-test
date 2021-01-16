@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/babel-preset-css-prop": "^11.0.0",
+    "@emotion/react": "^11.1.4",
+    "@emotion/styled": "^11.0.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -43,6 +46,7 @@
     ]
   },
   "devDependencies": {
+    "@emotion/babel-plugin": "^11.1.2",
     "@types/faker": "^5.1.5",
     "@types/styled-components": "^5.1.7",
     "node-sass": "^4.0.0"

@@ -2,6 +2,11 @@ import React from 'react';
 
 import { Row as RowComponent } from './styles';
 
-export const Row = ({ children }: { children: any }): JSX.Element => {
-  return <RowComponent>{children}</RowComponent>;
-};
+interface IRowProps {
+  children?: any;
+  style?: React.CSSProperties;
+}
+
+export const Row = ({ children, style = {} }: IRowProps): JSX.Element => (
+  <RowComponent style={style}>{children}</RowComponent>
+);
