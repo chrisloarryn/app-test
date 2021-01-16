@@ -20,3 +20,14 @@ export const insurances = [
     }
   }
 ];
+
+export interface IInsuranceFake {
+  insurance?: IInsurance
+}
+
+export interface IInsurance {
+  description?: string
+  image?: string
+  name?: string
+  price?: number
+}

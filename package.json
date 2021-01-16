@@ -10,6 +10,7 @@
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "faker": "^5.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
     "react-scripts": "4.0.1",
@@ -42,9 +43,9 @@
     ]
   },
   "devDependencies": {
-    "node-sass": "^4.0.0",
     "@types/faker": "^5.1.5",
-    "@types/styled-components": "^5.1.7"
+    "@types/styled-components": "^5.1.7",
+    "node-sass": "^4.0.0"
   },
   "resolutions": {
     "styled-components": "^5.2.1"
