@@ -7,6 +7,10 @@ interface IButtonProps {
   onClick?: (value: any) => any;
 }
 
+/* <Button onClick={() => setActive(mock)}>
+  Reset
+</Button> */
+
 export const Button = ({
   name = 'Button',
   onClick = () => {}

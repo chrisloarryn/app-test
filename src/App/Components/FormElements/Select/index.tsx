@@ -1,10 +1,7 @@
-import React, { useContext } from 'react';
-// import faker from 'faker';
-// import { AppStateContext } from '../../../Providers/AppState';
-import { Select as SelectComponent, Div, Label } from './styles';
+import React from 'react';
+import { Select as SelectComponent, Label } from './styles';
 import { Col } from './../../UI/Molecules/Col';
 import { Options } from '../Option';
-
 
 interface IOptionProperties {
   value?: string;
@@ -18,29 +15,16 @@ interface ISelectProps {
   handleChange?: (value: any) => void;
 }
 
-export const Select = ({ id, iterators = [], handleChange }: ISelectProps) => {
-  {
-    /* <div>
-      <Label htmlFor={id}>Selector de Plan:</Label>
-      <Div style={{ margin: 'auto' }}>
-        
-        <Button onClick={() => setActive(mock)}>
-          Reset
-        </Button>
-      </Div>
-    </div> */
-  }
-  return (
-    <Col>
-      <Label htmlFor={id}>Selector de Plan:</Label>
-      <SelectComponent id={id} onChange={handleChange}>
-        {iterators.map((item: IOptionProperties, index: number) => (
-          <Options key={`${index+1}`} option={item} />
-        ))}
-      </SelectComponent>
-    </Col>
-  );
-};
+export const Select = ({ id, iterators = [], handleChange }: ISelectProps) => (
+  <Col>
+    <Label htmlFor={id}>Selector de Plan:</Label>
+    <SelectComponent id={id} onChange={handleChange}>
+      {iterators.map((item: IOptionProperties, index: number) => (
+        <Options key={`${index + 1}`} option={item} />
+      ))}
+    </SelectComponent>
+  </Col>
+);
 
 // const mock = {
 //   name: '',
