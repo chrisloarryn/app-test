@@ -1,9 +1,15 @@
-import styled from '@emotion/styled'
+import styled from '@emotion/styled';
 
 import { css } from '@emotion/react';
 
 interface IContainerProps {
-  align?: 'flex-start' | 'center' | 'flex-end';
+  align?:
+    | 'flex-start'
+    | 'center'
+    | 'flex-end'
+    | 'space-between'
+    | 'space-around'
+    | 'nowrap';
   direction?:
     | 'row'
     | 'column'
@@ -22,6 +28,12 @@ const styleAlign = (align: string): string => {
       return align;
     case 'center':
       return align;
+    case 'space-between':
+      return align;
+    case 'space-around':
+      return align;
+    case 'nowrap':
+      return align;
     default:
       return 'center';
   }
@@ -29,7 +41,7 @@ const styleAlign = (align: string): string => {
 
 export const Container = styled.div<IContainerProps>`
   display: flex;
-  flex-direction: ${(props) => props && props.align};
+  flex-direction: ${(props) => props && props.direction};
   justify-content: center;
 
   ${(props) =>

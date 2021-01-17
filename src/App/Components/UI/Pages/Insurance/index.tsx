@@ -34,7 +34,8 @@ export const Insurance = ({ name = '' }: { name?: string }) => {
       insurances.filter(
         (item: any) => item.name === formValues[INSURANCE_NAME]
       );
-    const find = filtered && filtered;
+    const find = filtered && filtered.length && filtered[0];
+    console.log(find)
     setActive(!!find && find);
     // eslint-disable-next-line
   }, [formValues, setActive]);
@@ -50,7 +51,7 @@ export const Insurance = ({ name = '' }: { name?: string }) => {
       </File>
 
       <File>
-        <Container align='flex-end'>
+        <Container align='center'>
           <form
             onSubmit={handleClick}
             css={css`
