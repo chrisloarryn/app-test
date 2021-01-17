@@ -20,11 +20,13 @@ import React from 'react';
 import Providers from './Providers';
 
 import { Insurance } from './Components/UI/Pages';
+import { InsuranceCard } from './Components/UI/Pages/InsuranceCard';
 
 const App = () => {
   return (
     <Providers.AppStateProvider>
       <Insurance />
+      <InsuranceCard />
     </Providers.AppStateProvider>
   );
 };

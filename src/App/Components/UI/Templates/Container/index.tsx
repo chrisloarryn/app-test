@@ -3,6 +3,7 @@ import React from 'react';
 import { Container as ContainerComponent } from './styles';
 
 interface IContainerProps {
+  css?: any
   children?: any;
   align?: 'flex-start' | 'center' | 'flex-end';
   style?: React.CSSProperties;
@@ -20,7 +21,7 @@ export const Container = ({
   children,
   align = 'flex-end',
   style = {},
-  direction = 'column'
+  direction = 'column',
 }: IContainerProps) => (
   <ContainerComponent align={align} direction={direction} style={style}>
     {children}

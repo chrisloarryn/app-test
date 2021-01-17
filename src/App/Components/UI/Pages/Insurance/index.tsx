@@ -65,7 +65,7 @@ export const Insurance = ({ name = '' }: { name?: string }) => {
               name={INSURANCE_NAME}
             />
 
-            <Button />
+            <Button name="Elegir" />
           </form>
         </Container>
       </File>
