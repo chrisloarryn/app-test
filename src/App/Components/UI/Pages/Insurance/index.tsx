@@ -5,16 +5,17 @@ import { jsx, css } from '@emotion/react';
 import { Select } from './../../../FormElements/Select';
 import { Title, Button } from '../../Atoms';
 import { File } from '../../Organisms';
-import { useContext, useEffect } from 'react';
+import { Fragment, useContext, useEffect } from 'react';
 import { Container } from '../../Templates';
 import { AppStateContext } from '../../../../Providers/AppState';
 import { useForm } from '../../../../Hooks/useForm';
 
 export const Insurance = ({ name = '' }: { name?: string }) => {
   const INSURANCE_NAME = 'insurance';
-  const { insurances, setActive } = useContext(AppStateContext);
+  const { insurances, setActive, active: currentActive } = useContext(
+    AppStateContext
+  );
   const [formValues, handleInputChange] = useForm({ [INSURANCE_NAME]: '' });
-  console.log(insurances);
   const handleClick = (e: any) => {
     e.preventDefault();
     // setActive(mock);
@@ -35,18 +36,23 @@ export const Insurance = ({ name = '' }: { name?: string }) => {
         (item: any) => item.name === formValues[INSURANCE_NAME]
       );
     const find = filtered && filtered.length && filtered[0];
-    console.log(find)
     setActive(!!find && find);
     // eslint-disable-next-line
   }, [formValues, setActive]);
   return (
-    <div>
+    <Fragment>
       <File>
-        <Title size='h2'>Here a title</Title>
+        <Title size='h2'>
+          {currentActive && currentActive.name !== ''
+            ? currentActive.name
+            : 'NO title'}
+        </Title>
       </File>
       <File>
         <Title size='h1'>
-          {name !== '' ? 'Seleccionado' : 'NO Seleccionado'}
+          {currentActive && currentActive.name !== ''
+            ? 'Seleccionado'
+            : 'NO Seleccionado'}
         </Title>
       </File>
 
@@ -66,10 +72,10 @@ export const Insurance = ({ name = '' }: { name?: string }) => {
               name={INSURANCE_NAME}
             />
 
-            <Button name="Elegir" />
+            <Button name='Elegir' />
           </form>
         </Container>
       </File>
-    </div>
+    </Fragment>
   );
 };
