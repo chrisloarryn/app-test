@@ -1,8 +1,8 @@
 // this comment tells babel to convert jsx to calls to a function called jsx instead of React.createElement
 /** @jsxRuntime classic /
 /** @jsx jsx */
-import { jsx, css } from '@emotion/react';
-import { Select } from './../../../FormElements/Select';
+import { jsx } from '@emotion/react';
+import { Select, Form } from './../../../FormElements';
 import { Title, Button } from '../../Atoms';
 import { File } from '../../Organisms';
 import { Fragment, useContext, useEffect } from 'react';
@@ -58,22 +58,14 @@ export const Insurance = ({ name = '' }: { name?: string }) => {
 
       <File>
         <Container align='center'>
-          <form
-            onSubmit={handleClick}
-            css={css`
-              display: flex;
-              justify-content: center;
-              align-items: flex-end;
-            `}
-          >
+          <Form onSubmit={handleClick}>
             <Select
               iterators={insurances}
               handleChange={handleInputChange}
               name={INSURANCE_NAME}
             />
-
             <Button name='Elegir' />
-          </form>
+          </Form>
         </Container>
       </File>
     </Fragment>
